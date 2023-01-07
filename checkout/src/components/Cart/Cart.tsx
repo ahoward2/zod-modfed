@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CartWrapper from "./Cart.styles";
-
+import styled from "styled-components";
 export interface Item {
   id: number;
   name: string;
@@ -14,7 +13,7 @@ declare global {
   }
 }
 
-const Cart = () => {
+export const Cart = () => {
   const [items, setItems] = useState<Item[]>([]);
 
   useEffect(() => {
@@ -33,8 +32,8 @@ const Cart = () => {
     <CartWrapper>
       <ul className="item-list">
         {items?.length > 0 &&
-          items.map((item) => (
-            <li key={item.id} className="item-card">
+          items.map((item, index) => (
+            <li key={item.id + "-" + index} className="item-card">
               <div className="item-name-desc">
                 <span>{item.name}</span>
                 <span>{item.description}</span>
@@ -49,4 +48,27 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+const CartWrapper = styled.div`
+  background-color: white;
+  border: solid 1px;
+  padding: 8px;
+  height: 100%;
+  width: 100%;
+  .item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .item-card {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+  .item-name-desc {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export default CartWrapper;

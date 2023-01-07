@@ -1,8 +1,8 @@
 import React from "react";
 import { ComponentMeta } from "@storybook/react";
 
-import Cart from "./Cart";
-import Button from "../Button/Button";
+import { Cart } from "./Cart";
+import { Button } from "../Button";
 
 export default {
   title: "Cart/Primary",

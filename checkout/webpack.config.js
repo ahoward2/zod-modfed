@@ -51,8 +51,7 @@ const federationConfig = {
   filename: "remote-entry.js",
   remotes: {},
   exposes: {
-    "./Cart": "./src/components/Cart/Cart",
-    "./Button": "./src/components/Button/Button",
+    "./Cart": "./src/components/Cart",
   },
   shared: {
     ...deps,

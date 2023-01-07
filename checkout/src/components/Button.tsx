@@ -13,8 +13,6 @@ const handleClick = () => {
   window.dispatchEvent(event);
 };
 
-const Button = () => {
+export const Button = () => {
   return <button onClick={handleClick}>Add to cart!</button>;
 };
-
-export default Button;

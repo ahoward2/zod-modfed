@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "*": ["*", "@mf-types/*"]
+      "checkout/*": ["@mf-types/checkout/_types/*"]
     },
     "jsx": "react",
     "module": "esnext",

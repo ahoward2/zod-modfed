@@ -1,4 +1,4 @@
-import { Item } from "@mf-types/checkout/_types/Cart/Cart";
+import { Item } from "@mf-types/checkout/_types/Cart";
 import React from "react";
 
 const handleClick = (item: Item) => {

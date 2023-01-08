@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Button } from "../Button";
-export interface Item {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-}
+import { Item, ItemSchema } from "./Cart.schema";
 
 declare global {
   interface WindowEventMap {
@@ -19,11 +14,13 @@ export const Cart = () => {
   const [items, setItems] = useState<Item[]>([]);
 
   const addItemToCartHandler = (item: WindowEventMap["addItemToCart"]) => {
+    ItemSchema.parse(item.detail);
     setItems((current) => [item.detail, ...current]);
   };
   const removeItemFromCartHandler = (
     item: WindowEventMap["removeItemFromCart"]
   ) => {
+    ItemSchema.parse(item.detail);
     setItems((current) => {
       const itemIndex = current.findIndex(
         (itemSearched) => itemSearched.id === item.detail.id

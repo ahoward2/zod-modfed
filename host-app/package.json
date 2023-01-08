@@ -25,7 +25,7 @@
     "start": "webpack-cli serve",
     "build": "webpack --mode production",
     "serve": "serve dist -p 3000",
-    "prebuild": "rimraf dist"
+    "prebuild": "rimraf dist @mf-types"
   },
   "dependencies": {
     "@module-federation/typescript": "^2.1.3",

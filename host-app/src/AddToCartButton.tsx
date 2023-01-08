@@ -1,4 +1,4 @@
-import { Item } from "@mf-types/checkout/_types/Cart";
+import { Item } from "@mf-types/checkout/_types/Cart/Cart.schema";
 import React from "react";
 import styled from "styled-components";
 

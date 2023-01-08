@@ -1,6 +1,6 @@
 {
-  "name": "checkout",
-  "version": "1.0.0",
+  "name": "@ahowardtech/checkout",
+  "version": "1.0.1",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "browser": "dist/browser/remote-entry.js",

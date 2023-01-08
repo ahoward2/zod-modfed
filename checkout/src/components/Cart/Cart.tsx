@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Button } from "../Button";
 export interface Item {
   id: number;
   name: string;
@@ -10,21 +11,44 @@ export interface Item {
 declare global {
   interface WindowEventMap {
     addItemToCart: CustomEvent<Item>;
+    removeItemFromCart: CustomEvent<Item>;
   }
 }
 
 export const Cart = () => {
   const [items, setItems] = useState<Item[]>([]);
 
-  useEffect(() => {
-    window.addEventListener("addItemToCart", (item) => {
-      setItems((current) => [item.detail, ...current]);
+  const addItemToCartHandler = (item: WindowEventMap["addItemToCart"]) => {
+    setItems((current) => [item.detail, ...current]);
+  };
+  const removeItemFromCartHandler = (
+    item: WindowEventMap["removeItemFromCart"]
+  ) => {
+    setItems((current) => {
+      const itemIndex = current.findIndex(
+        (itemSearched) => itemSearched.id === item.detail.id
+      );
+      current.splice(itemIndex, 1);
+      return [...current];
     });
+  };
 
+  const handleRemoveButtonClick = (item: Item) => {
+    const event = new CustomEvent("removeItemFromCart", {
+      detail: item,
+    });
+    window.dispatchEvent(event);
+  };
+
+  useEffect(() => {
+    window.addEventListener("addItemToCart", addItemToCartHandler);
+    window.addEventListener("removeItemFromCart", removeItemFromCartHandler);
     return () => {
-      window.removeEventListener("addItemToCart", (item) => {
-        setItems((current) => [item.detail, ...current]);
-      });
+      window.removeEventListener("addItemToCart", addItemToCartHandler);
+      window.removeEventListener(
+        "removeItemFromCart",
+        removeItemFromCartHandler
+      );
     };
   }, []);
 
@@ -35,11 +59,15 @@ export const Cart = () => {
           items.map((item, index) => (
             <li key={item.id + "-" + index} className="item-card">
               <div className="item-name-desc">
-                <span>{item.name}</span>
-                <span>{item.description}</span>
+                <span className="item-name">{item.name}</span>
+                <span className="item-desc">{item.description}</span>
               </div>
               <div className="item-price">
                 <span>{"$" + item.price}</span>
+                <Button
+                  handleClick={() => handleRemoveButtonClick(item)}
+                  text="remove"
+                />
               </div>
             </li>
           ))}
@@ -67,7 +95,11 @@ const CartWrapper = styled.div`
   }
   .item-name-desc {
     display: flex;
+    width: 75%;
     flex-direction: column;
+    > .item-name {
+      font-weight: bold;
+    }
   }
 `;
 

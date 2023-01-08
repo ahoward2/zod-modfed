@@ -64,6 +64,7 @@
   },
   "homepage": "https://github.com/ahoward2/zod-modfed#readme",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

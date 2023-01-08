@@ -4,12 +4,12 @@ const { camelCase } = require("camel-case");
 const { FederatedTypesPlugin } = require("@module-federation/typescript");
 
 const federatedRemotes = {
-  checkout: "^0.0.1",
+  "@ahowardtech/checkout": "^1.0.0",
 };
 
 const localRemotes = {
-  checkout: `${camelCase(
-    "checkout"
+  "@ahowardtech/checkout": `${camelCase(
+    "@ahowardtech/checkout"
   )}@http://localhost:3001/browser/remote-entry.js`,
 };
 

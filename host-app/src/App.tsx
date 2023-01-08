@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ItemList } from "./ItemList";
 
-const RemoteCart = React.lazy(() => import("checkout/Cart"));
+const RemoteCart = React.lazy(() => import("@ahowardtech/checkout/Cart"));
 
 const App = () => {
   return (

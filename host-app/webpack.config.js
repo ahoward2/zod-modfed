@@ -95,12 +95,16 @@ module.exports = {
       },
     ],
   },
+  infrastructureLogging: {
+    level: "log",
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
     new FederatedTypesPlugin({
       federationConfig,
+      disableDownloadingRemoteTypes: false, // switch to true to disable downloading remote types
     }),
   ],
 };

@@ -40,6 +40,12 @@ export const Cart = () => {
     window.dispatchEvent(event);
   };
 
+  const calculateTotal = (items: Item[]) => {
+    let sum = 0.0;
+    items.forEach((item) => (sum += item.price));
+    return parseFloat(sum.toString()).toFixed(2);
+  };
+
   useEffect(() => {
     window.addEventListener("addItemToCart", addItemToCartHandler);
     window.addEventListener("removeItemFromCart", removeItemFromCartHandler);
@@ -54,6 +60,9 @@ export const Cart = () => {
 
   return (
     <CartWrapper>
+      <div className="cart-header">
+        <span className="cart-header-title">cart 🛒</span>
+      </div>
       <ul className="item-list">
         {items?.length > 0 &&
           items.map((item, index) => (
@@ -72,6 +81,13 @@ export const Cart = () => {
             </li>
           ))}
       </ul>
+      <div className="cart-footer">
+        <span className="price-total">{"$" + calculateTotal(items)}</span>
+        <Button
+          handleClick={() => console.log("checking out")}
+          text="checkout"
+        ></Button>
+      </div>
     </CartWrapper>
   );
 };
@@ -82,10 +98,22 @@ const CartWrapper = styled.div`
   padding: 8px;
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  .cart-header {
+    border-bottom: solid 1px;
+    padding-bottom: 8px;
+    > .cart-header-title {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
   .item-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    height: 100%;
+    overflow-y: scroll;
   }
   .item-card {
     display: flex;
@@ -99,6 +127,18 @@ const CartWrapper = styled.div`
     flex-direction: column;
     > .item-name {
       font-weight: bold;
+    }
+  }
+  .item-price {
+    display: flex;
+    flex-direction: column;
+    justify-items: end;
+  }
+  .cart-footer {
+    display: flex;
+    justify-content: space-between;
+    > .price-total {
+      min-width: 50%;
     }
   }
 `;

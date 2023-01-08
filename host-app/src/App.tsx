@@ -8,7 +8,7 @@ const App = () => {
   return (
     <AppWrapper>
       <h1>Ecomm Store</h1>
-      <div style={{ width: "600px", height: "400px", display: "flex" }}>
+      <div style={{ width: "700px", height: "400px", display: "flex" }}>
         <ItemList />
         <React.Suspense fallback="loading cart">
           <RemoteCart></RemoteCart>

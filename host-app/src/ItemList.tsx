@@ -1,22 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Item } from "@mf-types/checkout/_types/Cart";
 import AddToCartButton from "./AddToCartButton";
-
-const items: Item[] = [
-  {
-    id: 1,
-    name: "Blue Shirt",
-    description: "Nice blue shirt.",
-    price: 1.55,
-  },
-  {
-    id: 2,
-    name: "Blue Shoes",
-    description: "Sturdy blue shoes with gum bottoms and white laces.",
-    price: 2.99,
-  },
-];
+import { items } from "./Items";
 
 export const ItemList = () => {
   return (
@@ -62,5 +47,10 @@ const ItemListWrapper = styled.div`
     > .item-name {
       font-weight: bold;
     }
+  }
+  .item-price {
+    display: flex;
+    flex-direction: column;
+    justify-items: end;
   }
 `;

@@ -1,5 +1,6 @@
 import { Item } from "@mf-types/checkout/_types/Cart";
 import React from "react";
+import styled from "styled-components";
 
 const handleClick = (item: Item) => {
   const event = new CustomEvent("addItemToCart", {
@@ -9,7 +10,16 @@ const handleClick = (item: Item) => {
 };
 
 const AddToCartButton = ({ item }: { item: Item }) => {
-  return <button onClick={() => handleClick(item)}>Add to cart</button>;
+  return (
+    <AddToCartButtonWrapper onClick={() => handleClick(item)}>
+      add to cart
+    </AddToCartButtonWrapper>
+  );
 };
+
+const AddToCartButtonWrapper = styled.button`
+  width: 100%;
+  height: 24px;
+`;
 
 export default AddToCartButton;

@@ -4,15 +4,13 @@ export class EventsClient<
 > {
   private events = new Map<keyof IncomingEvents, any>();
 
-  on(
-    type: keyof IncomingEvents,
-    listener: <Ctx extends keyof IncomingEvents>(
-      ev: IncomingEvents[Ctx]
-    ) => any,
+  on<EventType extends keyof IncomingEvents>(
+    type: EventType,
+    listener: (ev: IncomingEvents[EventType]) => any,
     schema: any,
     options?: boolean | AddEventListenerOptions
   ): void {
-    const customListener = (event: IncomingEvents[keyof IncomingEvents]) => {
+    const customListener = (event: IncomingEvents[EventType]) => {
       schema.parse(event.detail);
       listener(event);
     };
@@ -32,16 +30,19 @@ export class EventsClient<
     window.removeEventListener(type as keyof WindowEventMap, listener);
   }
 
-  emit(type: keyof OutgoingEvents, ctx: OutgoingEvents[keyof OutgoingEvents]) {
+  emit<EventType extends keyof OutgoingEvents>(
+    type: EventType,
+    ctx: OutgoingEvents[EventType]
+  ) {
     const event = new CustomEvent(type as keyof WindowEventMap, {
       detail: ctx,
     });
     window.dispatchEvent(event);
   }
 
-  invoke(
-    type: keyof IncomingEvents,
-    ctx: IncomingEvents[keyof IncomingEvents]["detail"]
+  invoke<EventType extends keyof IncomingEvents>(
+    type: EventType,
+    ctx: IncomingEvents[EventType]["detail"]
   ) {
     const event = new CustomEvent(type as keyof WindowEventMap, {
       detail: ctx,

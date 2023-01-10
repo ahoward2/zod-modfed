@@ -12,8 +12,11 @@ export type Item = z.infer<typeof ItemSchema>;
 export type IncomingEvents = {
   addItemToCart: CustomEvent<Item>;
   removeItemFromCart: CustomEvent<Item>;
+  random: CustomEvent<number>;
 };
 
 export type OutgoingEvents = {
-  removeItemFromCart: Item;
+  itemAddedToCart: Item;
+  itemRemovedFromCart: Item;
+  random: number;
 };

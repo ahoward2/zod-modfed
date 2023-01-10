@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@module-federation/typescript": "link:../../universe/dist/packages/typescript",
-    "@ahowardtech/event-lib": "^1.1.1",
+    "@ahowardtech/event-lib": "^2.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.3.1"

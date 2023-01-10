@@ -1,4 +1,4 @@
-import { Item } from "@mf-types/@ahowardtech/checkout/_types/components/Cart/Cart.schema";
+import { Item } from "@ahowardtech/checkout/Cart.schema";
 
 export const items: Item[] = [
   {

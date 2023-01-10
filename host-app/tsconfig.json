@@ -3,7 +3,10 @@
     "baseUrl": ".",
     "paths": {
       "@ahowardtech/checkout/*": [
-        "@mf-types/@ahowardtech/checkout/_types/components/*"
+        "@mf-types/@ahowardtech/*",
+        "@mf-types/@ahowardtech/checkout/_types/*",
+        "@mf-types/@ahowardtech/checkout/_types/components/*",
+        "@mf-types/@ahowardtech/checkout/_types/components/Cart/*"
       ]
     },
     "jsx": "react",

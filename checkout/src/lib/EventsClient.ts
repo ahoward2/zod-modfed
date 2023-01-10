@@ -12,7 +12,6 @@ export class EventsClient<
     schema: any,
     options?: boolean | AddEventListenerOptions
   ): void {
-    // TODO: Better type inference for event
     const customListener = (event: IncomingEvents[keyof IncomingEvents]) => {
       schema.parse(event.detail);
       listener(event);

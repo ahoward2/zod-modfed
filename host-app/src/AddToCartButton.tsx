@@ -1,12 +1,12 @@
-import { Item } from "@ahowardtech/checkout/Cart.schema";
+import { Item, IncomingEvents } from "@ahowardtech/checkout/Cart.schema";
 import React from "react";
 import styled from "styled-components";
+import { EventsClient } from "@ahowardtech/event-lib";
+
+const eventsClient = new EventsClient<IncomingEvents, any>();
 
 const handleClick = (item: Item) => {
-  const event = new CustomEvent("addItemToCart", {
-    detail: { id: Date.now(), ...item },
-  });
-  window.dispatchEvent(event);
+  eventsClient.invoke("addItemToCart", { id: Date.now(), ...item });
 };
 
 const AddToCartButton = ({ item }: { item: Item }) => {

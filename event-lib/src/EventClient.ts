@@ -21,7 +21,7 @@ export class EventsClient<
 
     window.addEventListener(
       type as keyof WindowEventMap,
-      customListener,
+      customListener as EventListener,
       options
     );
   }
@@ -33,6 +33,16 @@ export class EventsClient<
   }
 
   emit(type: keyof OutgoingEvents, ctx: OutgoingEvents[keyof OutgoingEvents]) {
+    const event = new CustomEvent(type as keyof WindowEventMap, {
+      detail: ctx,
+    });
+    window.dispatchEvent(event);
+  }
+
+  invoke(
+    type: keyof IncomingEvents,
+    ctx: IncomingEvents[keyof IncomingEvents]["detail"]
+  ) {
     const event = new CustomEvent(type as keyof WindowEventMap, {
       detail: ctx,
     });

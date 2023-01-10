@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@ahowardtech/event-lib@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@ahowardtech/event-lib/-/event-lib-1.1.1.tgz#825ffab3166c734366ebdf64f6fa9218857e1627"
+  integrity sha512-twjMI3BKIA7Oc86f7COphEQYEpWAP1k7xuOV0B8xBkxHahH5fHvaGrSiAVM07hKTojyEVHgdaR4D+mG3PvB5Iw==
+
 "@babel/code-frame@7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"

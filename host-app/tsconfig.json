@@ -5,8 +5,7 @@
       "@ahowardtech/checkout/*": [
         "@mf-types/@ahowardtech/*",
         "@mf-types/@ahowardtech/checkout/_types/*",
-        "@mf-types/@ahowardtech/checkout/_types/components/*",
-        "@mf-types/@ahowardtech/checkout/_types/components/Cart/*"
+        "@mf-types/@ahowardtech/checkout/_types/Cart/*"
       ]
     },
     "jsx": "react",

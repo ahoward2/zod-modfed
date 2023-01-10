@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { EventsClient } from "../../lib/EventsClient";
+import { EventsClient } from "@ahowardtech/event-lib";
 import { Button } from "../Button";
 import {
   IncomingEvents,
@@ -15,7 +15,7 @@ export const Cart = () => {
   const [items, setItems] = useState<Item[]>([]);
 
   const handleRemoveButtonClick = (item: Item) => {
-    eventsClient.emit("removeItemFromCart", item);
+    eventsClient.invoke("removeItemFromCart", item);
   };
 
   const calculateTotal = (items: Item[]) => {

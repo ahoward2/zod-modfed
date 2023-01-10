@@ -9,9 +9,9 @@ import {
   OutgoingEvents,
 } from "./Cart.schema";
 
-export const Cart = () => {
-  const eventsClient = new EventsClient<IncomingEvents, OutgoingEvents>();
+const eventsClient = new EventsClient<IncomingEvents, OutgoingEvents>();
 
+export const Cart = () => {
   const [items, setItems] = useState<Item[]>([]);
 
   const handleRemoveButtonClick = (item: Item) => {

@@ -1,40 +1,21 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { EventsClient } from "../../lib/EventsClient";
 import { Button } from "../Button";
-import { Item, ItemSchema } from "./Cart.schema";
-
-declare global {
-  interface WindowEventMap {
-    addItemToCart: CustomEvent<Item>;
-    removeItemFromCart: CustomEvent<Item>;
-  }
-}
+import {
+  IncomingEvents,
+  Item,
+  ItemSchema,
+  OutgoingEvents,
+} from "./Cart.schema";
 
 export const Cart = () => {
+  const eventsClient = new EventsClient<IncomingEvents, OutgoingEvents>();
+
   const [items, setItems] = useState<Item[]>([]);
 
-  const addItemToCartHandler = (item: WindowEventMap["addItemToCart"]) => {
-    ItemSchema.parse(item.detail);
-    setItems((current) => [item.detail, ...current]);
-  };
-  const removeItemFromCartHandler = (
-    item: WindowEventMap["removeItemFromCart"]
-  ) => {
-    ItemSchema.parse(item.detail);
-    setItems((current) => {
-      const itemIndex = current.findIndex(
-        (itemSearched) => itemSearched.id === item.detail.id
-      );
-      current.splice(itemIndex, 1);
-      return [...current];
-    });
-  };
-
   const handleRemoveButtonClick = (item: Item) => {
-    const event = new CustomEvent("removeItemFromCart", {
-      detail: item,
-    });
-    window.dispatchEvent(event);
+    eventsClient.emit("removeItemFromCart", item);
   };
 
   const calculateTotal = (items: Item[]) => {
@@ -44,14 +25,29 @@ export const Cart = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("addItemToCart", addItemToCartHandler);
-    window.addEventListener("removeItemFromCart", removeItemFromCartHandler);
+    eventsClient.on(
+      "addItemToCart",
+      (item) => {
+        setItems((current) => [item.detail, ...current]);
+      },
+      ItemSchema
+    );
+    eventsClient.on(
+      "removeItemFromCart",
+      (item) => {
+        setItems((current) => {
+          const itemIndex = current.findIndex(
+            (itemSearched) => itemSearched.id === item.detail.id
+          );
+          current.splice(itemIndex, 1);
+          return [...current];
+        });
+      },
+      ItemSchema
+    );
     return () => {
-      window.removeEventListener("addItemToCart", addItemToCartHandler);
-      window.removeEventListener(
-        "removeItemFromCart",
-        removeItemFromCartHandler
-      );
+      eventsClient.remove("addItemToCart");
+      eventsClient.remove("removeItemFromCart");
     };
   }, []);
 

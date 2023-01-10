@@ -8,3 +8,12 @@ export const ItemSchema = z.object({
 });
 
 export type Item = z.infer<typeof ItemSchema>;
+
+export type IncomingEvents = {
+  addItemToCart: CustomEvent<Item>;
+  removeItemFromCart: CustomEvent<Item>;
+};
+
+export type OutgoingEvents = {
+  removeItemFromCart: Item;
+};

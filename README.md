@@ -6,5 +6,5 @@ The main store app (host) dispatches DOM events. Cart is a separate application 
 
 - [x] Typescript support for remote modules
 - [x] Simple zod parsing of remote module events
-- [ ] Expose remote event schemas types to consumers
-- [ ] Hide `declare global WindowEventMap` augmentation from remote module developer (do it under the hood).
+- [x] Basic events client with type safety from client -> host and host -> client
+- [ ] Upgrade FederatedTypesPlugin with support for fetching types from remote cdn.

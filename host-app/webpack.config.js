@@ -4,7 +4,7 @@ const { camelCase } = require("camel-case");
 const { FederatedTypesPlugin } = require("@module-federation/typescript");
 
 const federatedRemotes = {
-  "@ahowardtech/checkout": "^1.0.0",
+  "@ahowardtech/checkout": "^2.0.0",
 };
 
 const localRemotes = {

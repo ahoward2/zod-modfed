@@ -25,7 +25,7 @@ const App = () => {
   return (
     <AppWrapper>
       <h1>Ecomm Store</h1>
-      <div style={{ width: "700px", height: "400px", display: "flex" }}>
+      <div className="app-content">
         <ItemList items={items} handleAddToCart={handleClick} />
         <React.Suspense fallback="loading cart">
           <RemoteCart></RemoteCart>
@@ -43,4 +43,9 @@ const AppWrapper = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
+  .app-content {
+    display: flex;
+    width: 700px;
+    height: 400px;
+  }
 `;

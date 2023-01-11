@@ -7,11 +7,13 @@ export class EventsClient<
   on<EventType extends keyof Listeners>(
     type: EventType,
     listener: (ev: Listeners[EventType]) => any,
-    schema: any,
+    schema?: any,
     options?: boolean | AddEventListenerOptions
   ): void {
     const customListener = (event: Listeners[EventType]) => {
-      schema.parse(event.detail);
+      if (schema) {
+        schema.parse(event.detail);
+      }
       listener(event);
     };
 

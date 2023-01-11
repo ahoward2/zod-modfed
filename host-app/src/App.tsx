@@ -22,6 +22,9 @@ const handleClick = ({ name, description, price }: Item) => {
 };
 
 const App = () => {
+  eventsClient.on("itemAddedToCart", ({ detail }) => {
+    console.log(detail);
+  });
   return (
     <AppWrapper>
       <h1>Ecomm Store</h1>

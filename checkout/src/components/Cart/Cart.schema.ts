@@ -9,14 +9,14 @@ export const ItemSchema = z.object({
 
 export type Item = z.infer<typeof ItemSchema>;
 
-export type IncomingEvents = {
+export type Listeners = {
   addItemToCart: CustomEvent<Item>;
   removeItemFromCart: CustomEvent<Item>;
   random: CustomEvent<number>;
 };
 
-export type OutgoingEvents = {
-  itemAddedToCart: Item;
-  itemRemovedFromCart: Item;
-  random: number;
+export type Emitters = {
+  itemAddedToCart: CustomEvent<Item>;
+  itemRemovedFromCart: CustomEvent<Item>;
+  random: CustomEvent<number>;
 };

@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@ahowardtech/event-lib@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@ahowardtech/event-lib/-/event-lib-2.0.0.tgz#10097e8a69aa4370ebfdf9fa14cbaea80c3e9574"
-  integrity sha512-nvMtu08L8ttDIdSefiaRQZD1ocnOMu/bwe/ObvNekCPJf4QjAB7YFYcc/L3k9BL9li/Qm6V8NLdUyP+FMwSuRw==
+"@ahowardtech/event-lib@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ahowardtech/event-lib/-/event-lib-2.1.1.tgz#5a0c728254b8d394488c896881c6bddf5e127b98"
+  integrity sha512-gmYSzp8REJTvI5Jb9ZJ6/68JqHQsOhEFt/QYS3DUFCEV7XuxDMn8R1mIVKfIjELSGZMpA7Fgjrj0UK5ZpIxkBA==
 
 "@babel/code-frame@^7.18.6":
   version "7.18.6"
@@ -5264,3 +5264,8 @@ yauzl@^2.4.2:
   dependencies:
     buffer-crc32 "~0.2.3"
     fd-slicer "~1.1.0"
+
+zod@^3.20.2:
+  version "3.20.2"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.20.2.tgz#068606642c8f51b3333981f91c0a8ab37dfc2807"
+  integrity sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==

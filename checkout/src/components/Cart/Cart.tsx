@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { EventsClient } from "@ahowardtech/event-lib";
 import { Button } from "../Button";
 import {
-  IncomingEvents,
+  Listeners as CartListeners,
   Item,
   ItemSchema,
-  OutgoingEvents,
+  Emitters as CartEmitters,
 } from "./Cart.schema";
 
-const eventsClient = new EventsClient<IncomingEvents, OutgoingEvents>();
+const eventsClient = new EventsClient<CartListeners, CartEmitters>();
 
 export const Cart = () => {
   const [items, setItems] = useState<Item[]>([]);

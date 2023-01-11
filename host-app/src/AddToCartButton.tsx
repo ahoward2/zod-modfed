@@ -1,15 +1,14 @@
-import { Item, IncomingEvents } from "@ahowardtech/checkout/Cart.schema";
+import { Item } from "@ahowardtech/checkout/Cart.schema";
 import React from "react";
 import styled from "styled-components";
-import { EventsClient } from "@ahowardtech/event-lib";
 
-const eventsClient = new EventsClient<IncomingEvents, any>();
-
-const handleClick = (item: Item) => {
-  eventsClient.invoke("addItemToCart", { id: Date.now(), ...item });
-};
-
-const AddToCartButton = ({ item }: { item: Item }) => {
+const AddToCartButton = ({
+  item,
+  handleClick,
+}: {
+  item: Item;
+  handleClick: (item: Item) => void;
+}) => {
   return (
     <AddToCartButtonWrapper onClick={() => handleClick(item)}>
       add to cart

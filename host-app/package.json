@@ -28,7 +28,7 @@
     "prebuild": "rimraf dist @mf-types"
   },
   "dependencies": {
-    "@ahowardtech/event-lib": "^2.1.1",
+    "@ahowardtech/event-lib": "^2.2.0",
     "@module-federation/typescript": "link:../../universe/dist/packages/typescript",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

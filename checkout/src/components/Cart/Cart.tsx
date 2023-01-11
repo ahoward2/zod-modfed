@@ -1,40 +1,21 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { EventsClient } from "@ahowardtech/event-lib";
 import { Button } from "../Button";
-import { Item, ItemSchema } from "./Cart.schema";
+import {
+  Listeners as CartListeners,
+  Item,
+  ItemSchema,
+  Emitters as CartEmitters,
+} from "./Cart.schema";
 
-declare global {
-  interface WindowEventMap {
-    addItemToCart: CustomEvent<Item>;
-    removeItemFromCart: CustomEvent<Item>;
-  }
-}
+const eventsClient = new EventsClient<CartListeners, CartEmitters>();
 
 export const Cart = () => {
   const [items, setItems] = useState<Item[]>([]);
 
-  const addItemToCartHandler = (item: WindowEventMap["addItemToCart"]) => {
-    ItemSchema.parse(item.detail);
-    setItems((current) => [item.detail, ...current]);
-  };
-  const removeItemFromCartHandler = (
-    item: WindowEventMap["removeItemFromCart"]
-  ) => {
-    ItemSchema.parse(item.detail);
-    setItems((current) => {
-      const itemIndex = current.findIndex(
-        (itemSearched) => itemSearched.id === item.detail.id
-      );
-      current.splice(itemIndex, 1);
-      return [...current];
-    });
-  };
-
   const handleRemoveButtonClick = (item: Item) => {
-    const event = new CustomEvent("removeItemFromCart", {
-      detail: item,
-    });
-    window.dispatchEvent(event);
+    eventsClient.invoke("removeItemFromCart", item);
   };
 
   const calculateTotal = (items: Item[]) => {
@@ -44,14 +25,31 @@ export const Cart = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("addItemToCart", addItemToCartHandler);
-    window.addEventListener("removeItemFromCart", removeItemFromCartHandler);
+    eventsClient.on(
+      "addItemToCart",
+      ({ detail }) => {
+        setItems((current) => [detail, ...current]);
+        eventsClient.emit("itemAddedToCart", detail);
+      },
+      ItemSchema
+    );
+    eventsClient.on(
+      "removeItemFromCart",
+      ({ detail }) => {
+        setItems((current) => {
+          const itemIndex = current.findIndex(
+            (itemSearched) => itemSearched.id === detail.id
+          );
+          current.splice(itemIndex, 1);
+          return [...current];
+        });
+        eventsClient.emit("itemRemovedFromCart", detail);
+      },
+      ItemSchema
+    );
     return () => {
-      window.removeEventListener("addItemToCart", addItemToCartHandler);
-      window.removeEventListener(
-        "removeItemFromCart",
-        removeItemFromCartHandler
-      );
+      eventsClient.remove("addItemToCart");
+      eventsClient.remove("removeItemFromCart");
     };
   }, []);
 

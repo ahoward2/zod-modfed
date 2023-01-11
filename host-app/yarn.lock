@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@ahowardtech/event-lib@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ahowardtech/event-lib/-/event-lib-2.1.1.tgz#5a0c728254b8d394488c896881c6bddf5e127b98"
+  integrity sha512-gmYSzp8REJTvI5Jb9ZJ6/68JqHQsOhEFt/QYS3DUFCEV7XuxDMn8R1mIVKfIjELSGZMpA7Fgjrj0UK5ZpIxkBA==
+
 "@babel/code-frame@^7.18.6":
   version "7.18.6"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.18.6.tgz#3b25d38c89600baa2dcc219edfa88a74eb2c427a"
@@ -189,19 +194,9 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@module-federation/typescript@^2.1.3":
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/@module-federation/typescript/-/typescript-2.1.3.tgz#d7e6d412a812eedc1304e5b7d1868cc621cd1611"
-  integrity sha512-9Q4jsfknpO4fzd54D2EF9Gl/mCAhFzl7yYxNAvqC+iyfiNTKavjMIbw2hNkGOk6ly64+/1Y0Sa5ODq1AieLKNQ==
-  dependencies:
-    "@module-federation/utilities" "1.1.0"
-    "@swc/helpers" "0.4.14"
-    axios "0.27.2"
-    download "8.0.0"
-    lodash.get "4.4.2"
-    next "13.0.0"
-    react "18.2.0"
-    webpack "5.74.0"
+"@module-federation/typescript@link:../../universe/dist/packages/typescript":
+  version "0.0.0"
+  uid ""
 
 "@module-federation/utilities@1.1.0":
   version "1.1.0"
@@ -5269,3 +5264,8 @@ yauzl@^2.4.2:
   dependencies:
     buffer-crc32 "~0.2.3"
     fd-slicer "~1.1.0"
+
+zod@^3.20.2:
+  version "3.20.2"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.20.2.tgz#068606642c8f51b3333981f91c0a8ab37dfc2807"
+  integrity sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==

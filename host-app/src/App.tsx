@@ -1,15 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 import { ItemList } from "./ItemList";
-
+import { items } from "./items";
+import { EventsClient } from "@ahowardtech/event-lib";
+import {
+  Item,
+  Listeners as CartListeners,
+  Emitters as CartEmitters,
+} from "@ahowardtech/checkout/Cart.schema";
 const RemoteCart = React.lazy(() => import("@ahowardtech/checkout/Cart"));
+
+const eventsClient = new EventsClient<CartEmitters, CartListeners>();
+
+const handleClick = ({ name, description, price }: Item) => {
+  eventsClient.emit("addItemToCart", {
+    id: Date.now(),
+    name,
+    description,
+    price,
+  });
+};
 
 const App = () => {
   return (
     <AppWrapper>
       <h1>Ecomm Store</h1>
-      <div style={{ width: "700px", height: "400px", display: "flex" }}>
-        <ItemList />
+      <div className="app-content">
+        <ItemList items={items} handleAddToCart={handleClick} />
         <React.Suspense fallback="loading cart">
           <RemoteCart></RemoteCart>
         </React.Suspense>
@@ -26,4 +43,9 @@ const AppWrapper = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
+  .app-content {
+    display: flex;
+    width: 700px;
+    height: 400px;
+  }
 `;

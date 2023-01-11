@@ -1,8 +1,7 @@
 import React from "react";
 import { ComponentMeta } from "@storybook/react";
-
+import { EventsBar } from "../EventsBar";
 import { Cart } from "./Cart";
-import { Button } from "../Button";
 
 export default {
   title: "Cart/Primary",
@@ -15,7 +14,7 @@ const item = {
   price: 1.55,
 };
 
-const handleClick = () => {
+const handleAddToCart = () => {
   const event = new CustomEvent("addItemToCart", {
     detail: { id: Date.now(), ...item },
   });
@@ -25,10 +24,14 @@ const handleClick = () => {
 const Template = () => {
   return (
     <div style={{ width: "400px", height: "400px" }}>
-      <Button handleClick={handleClick} text="add to cart" />
+      <EventsBar events={[{ type: "addItemToCart", event: handleAddToCart }]} />
       <Cart />
     </div>
   );
 };
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({
+  parameters: {
+    layout: "centered",
+  },
+});

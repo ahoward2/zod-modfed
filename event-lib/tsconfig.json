@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "jsx": "react",
     "esModuleInterop": true,
     "declaration": true,
     "declarationMap": true,
+    "sourceMap": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "target": "es2015",
-    "outDir": "dist/lib",
+    "target": "es6",
+    "outDir": "dist",
     "strict": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "src/**/*.stories.tsx"]
+  "exclude": ["node_modules", "dist"]
 }

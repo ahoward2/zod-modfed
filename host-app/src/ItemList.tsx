@@ -1,9 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import AddToCartButton from "./AddToCartButton";
-import { items } from "./Items";
+import { Item } from "@ahowardtech/checkout/Cart.schema";
 
-export const ItemList = () => {
+export const ItemList = ({
+  items,
+  handleAddToCart,
+}: {
+  items: Item[];
+  handleAddToCart: (item: Item) => void;
+}) => {
   return (
     <ItemListWrapper>
       <ul className="item-list">
@@ -15,7 +21,7 @@ export const ItemList = () => {
             </div>
             <div className="item-price">
               <span>{"$" + item.price}</span>
-              <AddToCartButton item={item} />
+              <AddToCartButton item={item} handleClick={handleAddToCart} />
             </div>
           </li>
         ))}

@@ -1,15 +1,14 @@
-import { Item } from "@mf-types/@ahowardtech/checkout/_types/Cart/Cart.schema";
+import { Item } from "@ahowardtech/checkout/Cart.schema";
 import React from "react";
 import styled from "styled-components";
 
-const handleClick = (item: Item) => {
-  const event = new CustomEvent("addItemToCart", {
-    detail: { id: Date.now(), ...item },
-  });
-  window.dispatchEvent(event);
-};
-
-const AddToCartButton = ({ item }: { item: Item }) => {
+const AddToCartButton = ({
+  item,
+  handleClick,
+}: {
+  item: Item;
+  handleClick: (item: Item) => void;
+}) => {
   return (
     <AddToCartButtonWrapper onClick={() => handleClick(item)}>
       add to cart

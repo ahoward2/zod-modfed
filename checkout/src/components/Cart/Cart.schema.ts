@@ -12,11 +12,9 @@ export type Item = z.infer<typeof ItemSchema>;
 export type Listeners = {
   addItemToCart: CustomEvent<Item>;
   removeItemFromCart: CustomEvent<Item>;
-  random: CustomEvent<number>;
 };
 
 export type Emitters = {
   itemAddedToCart: CustomEvent<Item>;
   itemRemovedFromCart: CustomEvent<Item>;
-  random: CustomEvent<number>;
 };

@@ -28,8 +28,8 @@
     "prebuild": "rimraf dist @mf-types"
   },
   "dependencies": {
-    "@ahowardtech/event-lib": "^2.2.0",
-    "@module-federation/typescript": "link:../../universe/dist/packages/typescript",
+    "@module-federation/typescript": "^2.1.4",
+    "@rocket-science-core/event-client": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.3.1",

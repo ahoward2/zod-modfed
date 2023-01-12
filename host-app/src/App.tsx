@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ItemList } from "./ItemList";
 import { items } from "./items";
-import { EventsClient } from "@ahowardtech/event-lib";
+import { EventsClient } from "@rocket-science-core/event-client";
 import {
   Item,
   Listeners as CartListeners,

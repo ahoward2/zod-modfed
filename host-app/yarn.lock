@@ -353,10 +353,10 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-13.1.1.tgz#c209a37da13be27b722f9c40c40ab4b094866244"
   integrity sha512-mVF0/3/5QAc5EGVnb8ll31nNvf3BWpPY4pBb84tk+BfQglWLqc5AC9q1Ht/YMWiEgs8ALNKEQ3GQnbY0bJF2Gg==
 
-"@rocket-science-core/event-client@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@rocket-science-core/event-client/-/event-client-1.0.1.tgz#553e2d3fb6ae65794d0d4db0eaa1053ef5a73ff8"
-  integrity sha512-6QynruhM7ixzoimFsgQqloE9jivmbIcVPD0wrRNbf/enNKmZ8PQvVnQAez96qoe1sP0Te+x4CfWOsG01TImkDA==
+"@rocket-science-core/event-client@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@rocket-science-core/event-client/-/event-client-1.0.2.tgz#5c5f9cbadf2d9882f1e8962644837b9216f2322c"
+  integrity sha512-bAPKqThSLSoCKVQ0BpSLv1YkRL/P++rvQlhIthWQ7W4vctzDtHOb/9vcbENW82k18gIKOmnnI7ckXcV7PVu0VQ==
 
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"

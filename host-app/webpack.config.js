@@ -50,6 +50,10 @@ const federationConfig = {
       singleton: true,
       requiredVersion: deps["styled-components"],
     },
+    "@rocket-science-core/event-client": {
+      singleton: true,
+      requiredVersion: deps["@rocket-science-core/event-client"],
+    },
   },
 };
 

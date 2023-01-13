@@ -1740,10 +1740,10 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
-"@rocket-science-core/event-client@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@rocket-science-core/event-client/-/event-client-1.0.0.tgz#bd41705106e90b92011e226e8fbd0ee86867b760"
-  integrity sha512-XfCJT0bhF2nCHXrO3DlrhJyy8aKKc1acNz8mMHCkfgSPHK4JnoSXo5AtEh4brRiS4GmcayyaHgN09O6JgpetXw==
+"@rocket-science-core/event-client@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@rocket-science-core/event-client/-/event-client-1.0.1.tgz#553e2d3fb6ae65794d0d4db0eaa1053ef5a73ff8"
+  integrity sha512-6QynruhM7ixzoimFsgQqloE9jivmbIcVPD0wrRNbf/enNKmZ8PQvVnQAez96qoe1sP0Te+x4CfWOsG01TImkDA==
 
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"

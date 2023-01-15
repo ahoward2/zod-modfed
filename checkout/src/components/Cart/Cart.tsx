@@ -27,23 +27,31 @@ export const Cart = () => {
   useEffect(() => {
     eventsClient.on(
       "addItemToCart",
-      ({ detail }) => {
-        setItems((current) => [detail, ...current]);
-        eventsClient.emit("itemAddedToCart", detail);
+      ({ detail, error }) => {
+        if (error) {
+          console.error(error);
+        } else {
+          setItems((current) => [detail, ...current]);
+          eventsClient.emit("itemAddedToCart", detail);
+        }
       },
       ItemSchema
     );
     eventsClient.on(
       "removeItemFromCart",
-      ({ detail }) => {
-        setItems((current) => {
-          const itemIndex = current.findIndex(
-            (itemSearched) => itemSearched.id === detail.id
-          );
-          current.splice(itemIndex, 1);
-          return [...current];
-        });
-        eventsClient.emit("itemRemovedFromCart", detail);
+      ({ detail, error }) => {
+        if (error) {
+          console.error(error);
+        } else {
+          setItems((current) => {
+            const itemIndex = current.findIndex(
+              (itemSearched) => itemSearched.id === detail.id
+            );
+            current.splice(itemIndex, 1);
+            return [...current];
+          });
+          eventsClient.emit("itemRemovedFromCart", detail);
+        }
       },
       ItemSchema
     );

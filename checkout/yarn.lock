@@ -2152,10 +2152,10 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
-"@rocket-science-core/event-client@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@rocket-science-core/event-client/-/event-client-1.0.2.tgz#5c5f9cbadf2d9882f1e8962644837b9216f2322c"
-  integrity sha512-bAPKqThSLSoCKVQ0BpSLv1YkRL/P++rvQlhIthWQ7W4vctzDtHOb/9vcbENW82k18gIKOmnnI7ckXcV7PVu0VQ==
+"@rocket-science-core/event-client@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@rocket-science-core/event-client/-/event-client-2.0.0.tgz#67306f436eef2bbbfee32b210295d9396441f9fb"
+  integrity sha512-WOZGEVC3ztgUdp1Ax9eW8dWK8nVntyJAcITI0Ip0f6zxmprsmi3t5b8QgTdTlUTpBpNdQX1ApvpwUv+9e525Jw==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"

@@ -27,6 +27,7 @@ export const Cart = () => {
   useEffect(() => {
     eventsClient.on(
       "addItemToCart",
+      "addItemToState",
       ({ detail, error }) => {
         if (error) {
           console.error(error);
@@ -39,6 +40,7 @@ export const Cart = () => {
     );
     eventsClient.on(
       "removeItemFromCart",
+      "removeItemFromState",
       ({ detail, error }) => {
         if (error) {
           console.error(error);
@@ -56,8 +58,11 @@ export const Cart = () => {
       ItemSchema
     );
     return () => {
-      eventsClient.remove("addItemToCart");
-      eventsClient.remove("removeItemFromCart");
+      eventsClient.remove({ type: "addItemToCart", key: "addItemToState" });
+      eventsClient.remove({
+        type: "removeItemFromCart",
+        key: "removeItemFromState",
+      });
     };
   }, []);
 
@@ -87,7 +92,7 @@ export const Cart = () => {
       <div className="cart-footer">
         <span className="price-total">{"$" + calculateTotal(items)}</span>
         <Button
-          handleClick={() => console.log("checking out")}
+          handleClick={() => console.log(`checking out...`)}
           text="checkout"
         ></Button>
       </div>

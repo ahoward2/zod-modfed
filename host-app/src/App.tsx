@@ -22,7 +22,7 @@ const handleClick = ({ name, description, price }: Item) => {
 };
 
 const App = () => {
-  eventsClient.on("itemAddedToCart", ({ detail }) => {
+  eventsClient.on("itemAddedToCart", "logDetails", ({ detail }) => {
     console.log(detail);
   });
   return (

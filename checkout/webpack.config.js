@@ -42,6 +42,10 @@ const baseConfig = {
           target: "es2015",
         },
       },
+      {
+        test: /\.json$/,
+        loader: "json-loader",
+      },
     ],
   },
 };

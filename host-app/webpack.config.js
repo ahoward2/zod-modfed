@@ -54,6 +54,10 @@ const federationConfig = {
       singleton: true,
       requiredVersion: deps["@rocket-science-core/event-client"],
     },
+    "@zod": {
+      singleton: true,
+      requiredVersion: deps["zod"],
+    },
   },
 };
 

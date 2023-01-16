@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { EventsClient } from "@rocket-science-core/event-client";
+import { EventsClient } from "@rocket-science/event-client";
 import { Button } from "../Button";
 import {
   Listeners as CartListeners,

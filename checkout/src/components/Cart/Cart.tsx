@@ -58,11 +58,7 @@ export const Cart = () => {
       ItemSchema
     );
     return () => {
-      eventsClient.remove({ type: "addItemToCart", key: "addItemToState" });
-      eventsClient.remove({
-        type: "removeItemFromCart",
-        key: "removeItemFromState",
-      });
+      eventsClient.removeAll();
     };
   }, []);
 

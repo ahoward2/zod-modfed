@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { ItemList } from "./ItemList";
 import { items } from "./items";
@@ -22,9 +22,14 @@ const handleClick = ({ name, description, price }: Item) => {
 };
 
 const App = () => {
-  eventsClient.on("itemAddedToCart", "logDetails", ({ detail }) => {
-    console.log(detail);
-  });
+  useEffect(() => {
+    eventsClient.on("itemAddedToCart", "logDetails", ({ detail }) => {
+      console.log(detail);
+    });
+    return () => {
+      eventsClient.removeAll();
+    };
+  }, []);
   return (
     <AppWrapper>
       <h1>Ecomm Store</h1>

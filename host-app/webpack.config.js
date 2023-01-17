@@ -112,7 +112,6 @@ module.exports = {
     }),
     new FederatedTypesPlugin({
       federationConfig,
-      disableDownloadingRemoteTypes: false, // switch to true to disable downloading remote types
     }),
   ],
 };

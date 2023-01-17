@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Event } from "@rocket-science/event-client";
+import type { Event } from "@rocket-science/event-client";
 
 export const ItemSchema = z.object({
   id: z.number(),

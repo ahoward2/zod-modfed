@@ -1,4 +1,4 @@
-![host app screenshot](/host-app/public/host-app.png)
+![featured image](/images/feature-image.png)
 
 The main store app (host) dispatches DOM events. Cart is a separate application (remote) that has an event interface that can listen for events from host or other remotes.
 
@@ -33,3 +33,5 @@ yarn dev:local
 ## run app pointing to unpkg cdn hosting remote federation modules
 yarn dev
 ```
+
+![host app screenshot](/images/host-app.png)

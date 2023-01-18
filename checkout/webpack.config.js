@@ -77,7 +77,7 @@ const federationConfig = {
     },
     "@zod": {
       singleton: true,
-      requiredVersion: "^2.0.0",
+      requiredVersion: deps["zod"],
     },
   },
 };
